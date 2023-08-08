@@ -12,5 +12,5 @@ import { Task, tasks, dependencies } from './hierarchical-data';
 export class AppComponent {
   public data: Task[] = tasks;
   public dependencies: GanttDependency[] = dependencies;
-  public activeView: TimelineViewType = 'month';
+  public activeView: TimelineViewType = 'week';
 }

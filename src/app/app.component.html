@@ -4,8 +4,17 @@
   kendoGanttExpandable
   [initiallyExpanded]="true"
   childrenField="subtasks"
-  [dependencies]="dependencies"
   [activeView]="activeView"
+  [treeListPaneOptions]="{
+    collapsed: false,
+    collapsible: false
+  }"
+  [timelinePaneOptions]="{
+    collapsed: false,
+    collapsible: false,
+    size: '70%',
+    resizable: false
+  }"
 >
   <!-- <kendo-gantt-column
     field="title"
