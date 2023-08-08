@@ -1,0 +1,33 @@
+<kendo-gantt
+  [style.height.px]="500"
+  [kendoGanttHierarchyBinding]="data"
+  kendoGanttExpandable
+  [initiallyExpanded]="true"
+  childrenField="subtasks"
+  [dependencies]="dependencies"
+  [activeView]="activeView"
+>
+  <!-- <kendo-gantt-column
+    field="title"
+    title="Task"
+    [width]="200"
+    [expandable]="true"
+  ></kendo-gantt-column> -->
+  <kendo-gantt-column
+    field="start"
+    title="Unlock at"
+    format="E hh:mm a"
+    [width]="120"
+  ></kendo-gantt-column>
+  <kendo-gantt-column
+    field="end"
+    title="Lock at"
+    format="E hh:mm a"
+    [width]="120"
+  ></kendo-gantt-column>
+  <kendo-gantt-timeline-week-view></kendo-gantt-timeline-week-view>
+
+  <!-- <kendo-gantt-timeline-day-view></kendo-gantt-timeline-day-view>
+  <kendo-gantt-timeline-month-view></kendo-gantt-timeline-month-view>
+  <kendo-gantt-timeline-year-view></kendo-gantt-timeline-year-view> -->
+</kendo-gantt>
