@@ -1,10 +1,11 @@
 <kendo-gantt
   [style.height.px]="500"
-  [kendoGanttHierarchyBinding]="data"
+  [data]="data"
   kendoGanttExpandable
   [initiallyExpanded]="true"
   childrenField="subtasks"
   [activeView]="activeView"
+  [toolbarSettings]="{ position: 'none' }"
   [treeListPaneOptions]="{
     collapsed: false,
     collapsible: false
@@ -34,8 +35,10 @@
     format="E hh:mm a"
     [width]="120"
   ></kendo-gantt-column>
-  <kendo-gantt-timeline-week-view></kendo-gantt-timeline-week-view>
-  <kendo-gantt-timeline-day-view></kendo-gantt-timeline-day-view>
+  <kendo-gantt-timeline-week-view
+    [timelineHeadersDateFormat]="timelineHeadersDateFormat"
+  ></kendo-gantt-timeline-week-view>
+  <!-- <kendo-gantt-timeline-day-view></kendo-gantt-timeline-day-view> -->
   <!-- <kendo-gantt-timeline-month-view></kendo-gantt-timeline-month-view> -->
   <!-- <kendo-gantt-timeline-year-view></kendo-gantt-timeline-year-view> -->
 </kendo-gantt>
