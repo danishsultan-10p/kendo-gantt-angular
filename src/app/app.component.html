@@ -1,6 +1,14 @@
 <kendo-gantt
   [style.height.px]="500"
   [data]="data"
+  (cellClick)="handleCellClick($event)"
+  (cellClose)="handleCellClose($event)"
+  #gantt
+  (taskDblClick)="onDblClick($event)"
+  (taskDelete)="confirm(gantt)"
+  (save)="saveTask($event)"
+  (remove)="removeTask($event)"
+  (cancel)="cancelEditing($event)"
   kendoGanttExpandable
   [initiallyExpanded]="true"
   childrenField="subtasks"
@@ -13,8 +21,7 @@
   [timelinePaneOptions]="{
     collapsed: false,
     collapsible: false,
-    size: '70%',
-    resizable: false
+    size: '70%'
   }"
 >
   <!-- <kendo-gantt-column
@@ -28,13 +35,35 @@
     title="Unlock at"
     format="E hh:mm a"
     [width]="120"
+  >
+    <ng-template
+      kendoGanttEditTemplate
+      let-formGroup="formGroup"
+      let-column="column"
+    >
+      <kendo-datetimepicker
+        [format]="dateTimeFormat"
+        [formControl]="formGroup.get(column.field)"
+        [readOnlyInput]="true"
+      ></kendo-datetimepicker> </ng-template
   ></kendo-gantt-column>
   <kendo-gantt-column
     field="end"
     title="Lock at"
     format="E hh:mm a"
     [width]="120"
-  ></kendo-gantt-column>
+  >
+    <ng-template
+      kendoGanttEditTemplate
+      let-formGroup="formGroup"
+      let-column="column"
+    >
+      <kendo-datetimepicker
+        [format]="dateTimeFormat"
+        [formControl]="formGroup.get(column.field)"
+      ></kendo-datetimepicker>
+    </ng-template>
+  </kendo-gantt-column>
   <kendo-gantt-timeline-week-view
     [timelineHeadersDateFormat]="timelineHeadersDateFormat"
   ></kendo-gantt-timeline-week-view>
